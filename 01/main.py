@@ -12,7 +12,7 @@ def meth1(li):
         li[x] = li[min]
         li[min] = tempt
 
-    print(li)
+    return li
 
 
 # 冒泡排序
@@ -23,7 +23,7 @@ def meth2(li):
                 tempt = li[y]
                 li[y] = li[y + 1]
                 li[y + 1] = tempt
-    print(li)
+    return li
 
 
 # 搅拌排序
@@ -39,7 +39,7 @@ def meth3(li):
                 tempt = li[y]
                 li[y] = li[y - 1]
                 li[y - 1] = tempt
-    print(li)
+    return li
 
 
 # 合并排序
@@ -90,11 +90,29 @@ def meth5(data):
     else:
         return data
 
+# 插入排序
+def meth6(data):
+    for x in range(0,len(data)):
+        temp = data[x]
+        parser = x-1
+        while parser>=0 and temp<data[parser]:
+            data[parser+1] = data[parser]
+            parser-=1
+        data[parser+1] = temp
+    return data
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     li = [9, 3, 7, 7, 8, 1, 5, 3, 1, -3, -2]
-    meth1(li)
-    meth2(li)
-    meth3(li)
-    print(meth4(li))
-    print(meth5(li))
+    print(meth1(li.copy()))
+    print(meth2(li.copy()))
+    print(meth3(li.copy()))
+    print(meth4(li.copy()))
+    print(meth5(li.copy()))
+    print(meth6(li.copy()))
